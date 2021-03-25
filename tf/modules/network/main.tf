@@ -77,6 +77,26 @@ resource "google_compute_firewall" "cluster_ssh_firewall" {
   }
 }
 
+resource "google_compute_firewall" "cluster_cresset_firewall" {
+  count = ((var.shared_vpc_host_project == null &&
+    length(google_compute_network.cluster_network) > 0 &&
+    (var.disable_login_public_ips == false ||
+      var.disable_controller_public_ips == false ||
+    var.disable_compute_public_ips == false))
+    ? 1
+  : 0)
+
+  name          = "${var.cluster_name}-allow-cresset"
+  network       = google_compute_network.cluster_network[0].name
+  source_ranges = ["0.0.0.0/0"]
+
+  allow {
+    protocol = "tcp"
+    ports    = ["9000","9001"]
+  }
+}
+
+
 resource "google_compute_firewall" "cluster_iap_ssh_firewall" {
   count = ((var.shared_vpc_host_project == null &&
             length(google_compute_network.cluster_network) > 0 &&

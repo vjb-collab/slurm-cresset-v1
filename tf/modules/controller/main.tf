@@ -142,6 +142,14 @@ EOF
 ${file("${path.module}/../../../scripts/custom-controller-install")}
 EOF
 
+    start-SLURM-engine = <<EOF
+${file("${path.module}/../../../scripts/start-SLURM-engine.sh")}
+EOF
+
+    start-CEBroker = <<EOF
+${file("${path.module}/../../../scripts/start-CEBroker.sh")}
+EOF
+
     compute-shutdown = <<EOF
 ${file("${path.module}/../../../scripts/compute-shutdown")}
 EOF
@@ -161,5 +169,6 @@ EOF
     fluentd_conf_tpl = <<EOF
 ${file("${path.module}/../../../etc/controller-fluentd.conf.tpl")}
 EOF
+
   }
 }

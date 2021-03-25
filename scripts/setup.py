@@ -112,6 +112,17 @@ SSSSSSSSSSSSS   SSS   SSSSSSSSSSSSSSS   SSSS        SSSS     SSSS     SSSS
 SSSSSSSSSSSS    SSS    SSSSSSSSSSSSS    SSSS        SSSS     SSSS     SSSS
 
 
+
+ (      (                (           
+ )\ )   )\ )     (       )\ )        
+(()/(  (()/(     )\     (()/(   (    
+ /(_))  /(_)) ((((_)(    /(_))  )\   
+(_))_| (_))    )\ _ )\  (_))   ((_)  
+| |_   | |     (_)_\(_) | _ \  | __| 
+| __|  | |__    / _ \   |   /  | _|  
+|_|    |____|  /_/ \_\  |_|_\  |___| 
+
+
 """
 
 
@@ -471,7 +482,9 @@ def install_meta_files():
         ('compute-shutdown', 'compute-shutdown'),
         ('custom-compute-install', 'custom-compute-install'),
         ('custom-controller-install', 'custom-controller-install'),
-    ]
+        ('start-SLURM-engine.sh', 'start-SLURM-engine'),  
+        ('start-CEBroker.sh', 'start-CEBroker')
+        ]
 
     for file_name, meta_name in meta_files:
         text = util.get_metadata('attributes/' + meta_name)
@@ -1039,6 +1052,10 @@ def main():
 
         try:
             util.run(str(APPS_DIR/'slurm/scripts/custom-controller-install'))
+            slurm_script=str(APPS_DIR/'slurm/scripts/start-SLURM-engine.sh')
+            cebroker_script=str(APPS_DIR/'slurm/scripts/start-CEBroker.sh')
+            util.run(f"cp {slurm_script} /apps/cresset/")
+            util.run(f"cp {cebroker_script} /apps/cresset/")
         except Exception:
             # Ignore blank files with no shell magic.
             pass

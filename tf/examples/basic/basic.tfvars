@@ -6,7 +6,7 @@ zone         = "us-central1-b"
 # subnetwork_name         = "<existing subnetwork name>"
 # shared_vpc_host_project = "<vpc host project>"
 
-# disable_controller_public_ips = true
+  disable_controller_public_ips = false
 # disable_login_public_ips      = true
 # disable_compute_public_ips    = true
 
@@ -17,10 +17,11 @@ zone         = "us-central1-b"
 # controller_machine_type = "n1-standard-2"
 #  controller_disk_type    = "pd-ssd"
 # controller_disk_size_gb = 50
-# controller_labels = {
-#   key1 = "val1"
-#   key2 = "val2"
-# }
+ controller_labels = {
+   deployment_manager = "terraform"
+   cluster_type = "slurm"
+   node_type = "controller"
+ }
 # controller_service_account = "default"
 # controller_scopes          = ["https://www.googleapis.com/auth/cloud-platform"]
 # cloudsql = {
@@ -36,10 +37,11 @@ zone         = "us-central1-b"
 # login_machine_type = "n1-standard-2"
 # login_disk_type    = "pd-standard"
 # login_disk_size_gb = 20
-# login_labels = {
-#   key1 = "val1"
-#   key2 = "val2"
-# }
+login_labels = {
+   deployment_manager = "terraform"
+   cluster_type = "slurm"
+   node_type = "login"
+ }
 # login_node_count = 1
 # login_node_service_account = "default"
 # login_node_scopes          = [
@@ -81,14 +83,19 @@ zone         = "us-central1-b"
 # ]
 
 partitions = [
-  { name                 = "cpupart"
+  { name                 = "cpu.p"
     machine_type         = "n1-standard-4"
     static_node_count    = 0
     max_node_count       = 32
     zone                 = "us-central1-b"
     compute_disk_type    = "pd-standard"
     compute_disk_size_gb = 20
-    compute_labels       = {}
+    compute_labels       = {
+      accelerator = "none"
+      deployment_manager = "terraform"
+      cluster_type = "slurm"
+      node_type = "compute"
+    }
     cpu_platform         = null
     gpu_count            = 0
     gpu_type             = null
@@ -96,7 +103,7 @@ partitions = [
     preemptible_bursting = true
     vpc_subnet           = null
   },
-  { name                 = "gpupart"
+  { name                 = "gpu.p"
     machine_type         = "n1-standard-2"
     static_node_count    = 0
     max_node_count       = 32
@@ -104,8 +111,10 @@ partitions = [
     compute_disk_type    = "pd-standard"
     compute_disk_size_gb = 20
     compute_labels       = {
-      key1 = "val1"
-      key2 = "val2"
+      accelerator = "gpu"
+      deployment_manager = "terraform"
+      cluster_type = "slurm"
+      node_type = "compute"
     }
     cpu_platform         = null
     gpu_count            = 1
@@ -120,5 +129,6 @@ partitions = [
 #    }]
      preemptible_bursting = true
      vpc_subnet           = null
-}]
+}
+]
 
