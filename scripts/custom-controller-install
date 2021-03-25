@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CRESSET_DOWNLOAD_DIR="/cresset/"
+
+yum install -y libGLU
+mkdir -p ${CRESSET_DOWNLOAD_DIR}
+cd ${CRESSET_DOWNLOAD_DIR}
+curl -L -O https://www.cresset-group.com/downloads/flare.tar.xz
+curl -L -O http://www.cresset-group.com/downloads/CEB2.tar.xz
+
