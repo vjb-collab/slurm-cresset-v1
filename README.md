@@ -28,6 +28,8 @@ From Cloud Shell:
  
  ```sudo chgrp -R $USER cresset/```
  
+ ```cd cresset```
+ 
  ```./start-CEBroker.sh```
  
  ```tail -f cebroker2.log```
