@@ -8,7 +8,7 @@ From Cloud Shell:
 
 ```git clone https://github.com/vjb-collab/slurm-cresset-v1.git```
 
-```cd tf/examples/basic/```
+```cd slurm-cresset-v1/tf/examples/basic/```
 
 ```terraform init```
 
