@@ -1,6 +1,6 @@
-cluster_name = "cresset-cluster"
-project      = "hpc-cresset"
-zone         = "us-central1-b"
+cluster_name = "cluster-name"
+project      = "<ProjectID>"
+zone         = "<zone>"
 
 # network_name            = "<existing network name>"
 # subnetwork_name         = "<existing subnetwork name>"
