@@ -1,8 +1,6 @@
 # slurm-cresset-v1
 
-Demo script: How to get started with Slurm + Cresset Flare on GCP
-
-This terraform scipt will setup and configure an HPC Slurm +Cresset Flare environment for evaluation and testing. It is intended to be deployed in a sandbox environment.    
+This demo terraform scipt will setup and configure an HPC Slurm +Cresset Flare environment for evaluation and testing. It is intended to be deployed in a sandbox environment.    
 
 From Cloud Shell:
 
