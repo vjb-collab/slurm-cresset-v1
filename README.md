@@ -18,7 +18,7 @@ From Cloud Shell:
  
  ```gcloud compute scp  <LICENSEFILE>  controller:~/. --zone=<zone>```
  
- On the cluster controller node:
+ On the controller node:
  
  ```sudo mv <LICENSEFILE> /apps/cresset/licenses/.```
  
