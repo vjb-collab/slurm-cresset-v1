@@ -14,7 +14,7 @@ From Cloud Shell:
 
 ```vi basic.tfvars```
 
- ```terraform apply```
+ ```make apply```
  
  ```gcloud compute scp  <LICENSEFILE>  controller:~/. --zone=<zone>```
  
