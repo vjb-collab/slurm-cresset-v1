@@ -14,9 +14,11 @@ From Cloud Shell:
 
  ```make apply```
  
+ The cluster is ready after all compute images (e.g., cluster-name-compute-x-image) have been configured and stopped. After that, put the license in place:  
+ 
  ```gcloud compute scp  <LICENSEFILE>  controller:~/. --zone=<zone>```
  
- On the controller node:
+ The rest of the configuration takes place on the controller node. On the controller node:
  
  ```sudo mv <LICENSEFILE> /apps/cresset/licenses/.```
  
