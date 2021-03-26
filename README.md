@@ -1,6 +1,6 @@
 # slurm-cresset-v1
 
-This demo terraform scipt will setup and configure an HPC Slurm +Cresset Flare environment for evaluation and testing. It is intended to be deployed in a sandbox environment.    
+This demo terraform scipt will setup and configure an HPC Slurm + Cresset Flare environment for testing and evaluation. It is intended to be deployed to a sandbox environment.    
 
 From Cloud Shell:
 
